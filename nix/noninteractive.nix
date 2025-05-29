@@ -10,7 +10,7 @@
   ];
 
   imports = [
-    ./zfs-minimal.nix
+    #./zfs-minimal.nix
     ./python-minimal.nix
     ./noveau-workaround.nix
     # reduce closure size by removing perl
@@ -74,22 +74,22 @@
      # we are missing this from base.nix
      boot.supportedFilesystems = [
        "ext4"
-       "btrfs"
+       #"btrfs"
        ## quiet huge dependency closure
        #"cifs"
-       "f2fs"
+       #"f2fs"
        ## anyone still using this over ext4?
        #"jfs"
-       "ntfs"
+       #"ntfs"
        ## no longer seems to be maintained, anyone still using it?
        #"reiserfs"
        "vfat"
-       "xfs"
+       #"xfs"
      ];
      boot.kernelModules = [
        # we have to explicitly enable this, otherwise it is not loaded even when creating a raid:
        # https://github.com/nix-community/nixos-anywhere/issues/249
-       "dm-raid"
+       #"dm-raid"
      ];
   } // lib.optionalAttrs (options.hardware ? firmwareCompression) {
     hardware.firmwareCompression = "xz";
