@@ -39,10 +39,10 @@ main() {
   trap 'rm -rf -- "$tmp"' EXIT
   (
     channel=$(if [[ "$tag" == nixos-unstable ]]; then echo "unstable"; else echo "stable"; fi)
-    build_kexec_installer "$channel" "$arch" "$tmp" ""
+    #build_kexec_installer "$channel" "$arch" "$tmp" ""
     build_kexec_installer "$channel" "$arch" "$tmp" "-noninteractive"
-    build_netboot_image "$tag" "$channel" "$arch" "$tmp"
-    build_image_installer "$channel" "$arch" "$tmp"
+    #build_netboot_image "$tag" "$channel" "$arch" "$tmp"
+    #build_image_installer "$channel" "$arch" "$tmp"
   ) | readarray -t assets
   for asset in "${assets[@]}"; do
     pushd "$(dirname "$asset")"
